@@ -556,7 +556,7 @@ static void free_exception(char *e)
 {
 	// If this allocation is within the address range of the emergency buffer,
 	// don't call free() because it was not allocated with malloc()
-	if ((e > emergency_buffer) &&
+	if ((e >= emergency_buffer) &&
 	    (e < (emergency_buffer + sizeof(emergency_buffer))))
 	{
 		emergency_malloc_free(e);
